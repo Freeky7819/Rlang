@@ -1,0 +1,31 @@
+cmake_minimum_required(VERSION 3.16)
+project(rlang_pro)
+set(CMAKE_CXX_STANDARD 17)
+
+option(RLANG_ENABLE_AVX2 "Enable AVX2 acceleration" ON)
+option(RLANG_ENABLE_OPENMP "Enable OpenMP" OFF)
+option(RLANG_ENABLE_CUDA "Enable CUDA backend" OFF)
+
+add_library(rlang STATIC rlang_cpp/src/rlang.cpp rlang_cpp/src/rlang_simd.cpp rlang_cpp/src/rlang_scheduler.cpp)
+target_include_directories(rlang PUBLIC rlang_cpp/include)
+
+if (RLANG_ENABLE_OPENMP)
+  find_package(OpenMP)
+  if(OpenMP_CXX_FOUND)
+    target_link_libraries(rlang PUBLIC OpenMP::OpenMP_CXX)
+    target_compile_definitions(rlang PUBLIC RLANG_USE_OPENMP=1)
+  endif()
+endif()
+
+# CLI
+add_executable(rlang_cli rlang_cpp/src/main.cpp)
+target_link_libraries(rlang_cli rlang)
+
+# CUDA optional
+if (RLANG_ENABLE_CUDA)
+  enable_language(CUDA)
+  add_library(rlang_cuda rlang_cpp/cuda/rlang_cuda.cu)
+  target_include_directories(rlang_cuda PUBLIC rlang_cpp/include)
+  add_executable(rlang_cuda_cli rlang_cpp/cuda/main_cuda.cpp)
+  target_link_libraries(rlang_cuda_cli rlang_cuda)
+endif()
