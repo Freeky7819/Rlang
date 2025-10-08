@@ -40,3 +40,9 @@ endif()
 # WASM example (emscripten builds this normally)
 add_executable(wasm_demo examples/wasm_demo.cpp)
 target_link_libraries(wasm_demo PRIVATE rlang_fastdrop)
+
+
+add_library(rlang STATIC rlang_cpp/src/rlang.cpp)
+target_include_directories(rlang PUBLIC rlang_cpp/include)
+add_executable(rlang_cli rlang_cpp/main.cpp)
+target_link_libraries(rlang_cli rlang)
