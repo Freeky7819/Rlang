@@ -1,0 +1,21 @@
+{
+  "scopeName": "source.rlang",
+  "patterns": [
+    {
+      "name": "keyword.control.rlang",
+      "match": "\\b(cell|entity|bind|couple|profile|chord|endchord|record|optimize|run|report|export)\\b"
+    },
+    {
+      "name": "storage.type.rlang",
+      "match": "\\b(osc|integrator|population|queue)\\b"
+    },
+    {
+      "name": "constant.numeric.rlang",
+      "match": "\\b\\d+(?:\\.\\d+)?(?:Hz|s)?\\b"
+    },
+    {
+      "name": "comment.line.number-sign.rlang",
+      "match": "#.*$"
+    }
+  ]
+}

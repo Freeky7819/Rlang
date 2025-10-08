@@ -1,0 +1,31 @@
+{
+  "name": "rlang-syntax",
+  "displayName": "RLang Syntax Highlighting",
+  "description": "Syntax highlighting for RLang DSL files (.rlang)",
+  "version": "0.0.1",
+  "publisher": "freedom-rlang",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "rlang",
+        "aliases": [
+          "RLang",
+          "rlang"
+        ],
+        "extensions": [
+          ".rlang"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "rlang",
+        "scopeName": "source.rlang",
+        "path": "./syntaxes/rlang.tmLanguage.json"
+      }
+    ]
+  }
+}

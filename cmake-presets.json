@@ -1,0 +1,33 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 18,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "native-release",
+      "generator": "Ninja",
+      "binaryDir": "build",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "RLANG_AVX2": "ON",
+        "RLANG_CUDA": "OFF"
+      }
+    },
+    {
+      "name": "emscripten",
+      "generator": "Ninja",
+      "binaryDir": "build-wasm",
+      "environment": {
+        "EMSCRIPTEN": "/path/to/emsdk/upstream/emscripten"
+      },
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{EMSCRIPTEN}/cmake/Modules/Platform/Emscripten.cmake",
+        "CMAKE_BUILD_TYPE": "Release",
+        "RLANG_AVX2": "OFF"
+      }
+    }
+  ]
+}
