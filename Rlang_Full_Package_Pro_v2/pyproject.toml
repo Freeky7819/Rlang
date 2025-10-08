@@ -1,0 +1,14 @@
+[project]
+name = "rlang"
+version = "0.9.0"
+description = "Rlang — Resonant Language (Python reference with CLI and DSL parser)"
+authors = [{name="Damjan Žakelj"}]
+readme = "README.md"
+requires-python = ">=3.9"
+
+[project.scripts]
+rlang = "rlang_py.cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
