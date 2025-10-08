@@ -1,0 +1,15 @@
+model:
+  name: sim        # replace with your real model id if/when integrating
+rlang:
+  enabled: true
+  omega: 0.9       # example resonance frequency on log-scale
+  alpha: 0.12      # small modulation amplitude
+experiment:
+  n_sessions: 30
+  T: 256           # timesteps per session
+  omega_list: [0.9, 1.8]
+io:
+  outdir: results
+repro:
+  seed: 1337
+  deterministic: true

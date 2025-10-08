@@ -1,0 +1,7 @@
+numpy==1.26.4
+scipy==1.11.4
+pandas==2.2.2
+matplotlib==3.8.4
+# torch is optional for this pilot; if you use GPU features, pin it accordingly:
+# torch==2.4.1 ; sys_platform == 'linux'
+# torch==2.4.1+cu121 ; sys_platform == 'win32'

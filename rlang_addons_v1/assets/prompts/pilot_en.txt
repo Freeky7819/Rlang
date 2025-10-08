@@ -1,0 +1,8 @@
+# Minimal prompt scaffold (placeholder)
+# Replace or extend with your real evaluation prompts.
+You are a helpful assistant. Respond in a consistent tone.
+Describe a sunrise in two sentences.
+Explain why consistency matters in dialogue.
+List three unrelated words.
+Tell a short joke about programming.
+Define 'coherence' in one sentence.
